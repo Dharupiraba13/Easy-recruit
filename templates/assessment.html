@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz</title>
+    <link rel = "icon" href = "{{url_for('static',filename='icon.jpg')}}" type = "image/x-icon">
+
+  <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" ></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script>
+var total_seconds = 600 * 1;
+var c_minutes = parseInt(total_seconds / 60);
+var c_seconds = parseInt(total_seconds % 60);
+var timer;
+
+function CheckTime() {
+  document.getElementById("quiz-time-left").innerHTML ="<span style='color: #D2042D;'>"+'TIME LEFT   : ' + c_minutes + ' minutes ' + c_seconds + ' seconds '+"</span>" ;
+
+  if (total_seconds <= 0) {
+    score();
+  } else {
+    total_seconds = total_seconds - 1;
+    c_minutes = parseInt(total_seconds / 60);
+    c_seconds = parseInt(total_seconds % 60);
+    timer = setTimeout(CheckTime, 1000);
+  }
+}
+timer = setTimeout(CheckTime, 1000);
+
+  </script>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+#nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar {
+    background-image: linear-gradient(to right, #ffa500, #ff8c00);
+    padding: 0 !important;
+}
+
+.navbar-nav li {
+    padding: 0 10px;
+}
+
+.navbar-nav li a {
+    color: #fff !important;
+    font-weight: 600;
+    float: right;
+    text-align: left;
+}
+
+.fa-bars {
+    font-size: 25px !important;
+}
+
+.navbar-toggler {
+    outline: none !important;
+}
+
+#banner {
+    background-image: linear-gradient(to right, #ffa500, #ff8c00);
+    color: #fff;
+    padding: top 5%;
+
+}
+
+
+
+.promo-title {
+    font-size: 50px;
+    font-weight: 800;
+    margin-top: 40px;
+}
+
+.go-btn {
+    color: darkgreen;
+    font-size: 25px !important;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 100px;
+
+}
+
+.bottom-img {
+    height: 70px;
+    width: 100%;
+}
+
+.quiz-time{
+background-color:cornsilk;
+text-align: center;
+font-family: 'Times New Roman', Times, serif;
+font-weight: bolder;
+font-size: xx-large;
+
+}
+input
+  {
+    padding: 5px 5px;
+    font-size: 15px;
+    color:black;
+    background-color:white;
+    border: 2px black;
+    
+  }
+input:focus 
+  {
+    outline: none;
+    background-color:bisque;
+    color:black;
+  }
+
+h5{
+  color: brown;
+  font-weight: bold;
+}
+h6{
+  color:darkblue;
+}
+</style>
+</head>
+<body>
+
+<section id="banner">
+  <div class="container">
+    <div class="row">
+      <p class="promo-title text-center">
+        BASIC APTITUDE TEST
+      </p>
+      <p>
+       Kindly write <b>only the option</b>  in the Answer Textbox.<br>
+       You will be provided 10 minutes to answer the questions.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="quiz-time sticky-top" id="quiz-time-left"> 
+</div>
+
+ <section id="banner">
+    <div class="container">
+      <div class="row">
+        <form name="form" method="POST" action=/assessment enctype="multipart/form-data" >
+          <br><br>
+            <h5>1.{{ ques[0]['Desc'] }}</h5>
+            <h6 value="a">a. {{ ques[0]['Op1'] }}  </h6>
+            <h6 value="b">b. {{ ques[0]['Op2'] }}  </h6>
+            <h6 value="c">c. {{ ques[0]['Op3'] }}  </h6>
+            <h6 value="d">d. {{ ques[0]['Op4'] }}  </h6>
+            <input type="text" id="ans1" name="ans1"  placeholder="Answer" >
+           <br><br>
+            <h5>2.{{ ques[1]['Desc'] }}</h5>
+            <h6 value="a">a. {{ ques[1]['Op1'] }}  </h6>
+            <h6 value="b">b. {{ ques[1]['Op2'] }}  </h6>
+            <h6 value="c">c. {{ ques[1]['Op3'] }}  </h6>
+            <h6 value="d">d. {{ ques[1]['Op4'] }}  </h6>
+            <input type="text" id="ans2" name="ans2"  placeholder="Answer" >
+            <br><br>
+            <h5>3.{{ ques[2]['Desc'] }}</h5>
+            <h6 value="a">a. {{ ques[2]['Op1'] }}  </h6>
+            <h6 value="b">b. {{ ques[2]['Op2'] }}  </h6>
+            <h6 value="c">c. {{ ques[2]['Op3'] }}  </h6>
+            <h6 value="d">d. {{ ques[2]['Op4'] }}  </h6>
+      
+            <input type="text" id="ans3" name="ans3"  placeholder="Answer" >
+            <br><br>
+            <h5>4.{{ ques[3]['Desc'] }}</h5>
+            <h6 value="a">a. {{ ques[3]['Op1'] }}  </h6>
+            <h6 value="b">b. {{ ques[3]['Op2'] }}  </h6>
+            <h6 value="c">c. {{ ques[3]['Op3'] }}  </h6>
+            <h6 value="d">d. {{ ques[3]['Op4'] }}  </h6>
+            
+            <input type="text" id="ans4" name="ans4"  placeholder="Answer" >
+            <br><br>
+            <h5>5.{{ ques[4]['Desc'] }}</h5>
+            <h6 value="a">a. {{ ques[4]['Op1'] }}  </h6>
+            <h6 value="b">b. {{ ques[4]['Op2'] }}  </h6>
+            <h6 value="c">c. {{ ques[4]['Op3'] }}  </h6>
+            <h6 value="d">d. {{ ques[4]['Op4'] }}  </h6>
+         
+            <input type="text" id="ans5" name="ans5"  placeholder="Answer" >
+            <br><br>
+            <h5>6.{{ ques[5]['Desc'] }}</h5>
+            <h6 value="a">a. {{ ques[5]['Op1'] }}  </h6>
+            <h6 value="b">b. {{ ques[5]['Op2'] }}  </h6>
+            <h6 value="c">c. {{ ques[5]['Op3'] }}  </h6>
+            <h6 value="d">d. {{ ques[5]['Op4'] }}  </h6>
+            
+            <input type="text" id="ans6" name="ans6"  placeholder="Answer" >
+            <br><br>
+            <h5>7.{{ ques[6]['Desc'] }}</h5>
+            <h6 value="a">a. {{ ques[6]['Op1'] }}  </h6>
+            <h6 value="b">b. {{ ques[6]['Op2'] }}  </h6>
+            <h6 value="c">c. {{ ques[6]['Op3'] }}  </h6>
+            <h6 value="d">d. {{ ques[6]['Op4'] }}  </h6>
+          
+            <input type="text" id="ans7" name="ans7"  placeholder="Answer" >
+            <br><br>
+            <h5>8.{{ ques[7]['Desc'] }}</h5>
+            <h6 value="a">a. {{ ques[7]['Op1'] }}  </h6>
+            <h6 value="b">b. {{ ques[7]['Op2'] }}  </h6>
+            <h6 value="c">c. {{ ques[7]['Op3'] }}  </h6>
+            <h6 value="d">d. {{ ques[7]['Op4'] }}  </h6>
+          
+            <input type="text" id="ans8" name="ans8"  placeholder="Answer" >
+            <br><br>
+            <h5>9.{{ ques[8]['Desc'] }}</h5>
+            <h6 value="a">a. {{ ques[8]['Op1'] }}  </h6>
+            <h6 value="b">b. {{ ques[8]['Op2'] }}  </h6>
+            <h6 value="c">c. {{ ques[8]['Op3'] }}  </h6>
+            <h6 value="d">d. {{ ques[8]['Op4'] }}  </h6>
+            
+            <input type="text" id="ans9" name="ans9"  placeholder="Answer" >
+            <br><br>
+            <h5>10.{{ ques[9]['Desc'] }}</h5>
+            <h6 value="a">a. {{ ques[9]['Op1'] }}  </h6>
+            <h6 value="b">b. {{ ques[9]['Op2'] }}  </h6>
+            <h6 value="c">c. {{ ques[9]['Op3'] }}  </h6>
+            <h6 value="d">d. {{ ques[9]['Op4'] }}  </h6>
+         
+            <input type="text" id="ans10" name="ans10"  placeholder="Answer" >
+            <br><br>
+            <h5>11.{{ ques[10]['Desc'] }}</h5>
+            <h6 value="a">a. {{ ques[10]['Op1'] }}  </h6>
+            <h6 value="b">b. {{ ques[10]['Op2'] }}  </h6>
+            <h6 value="c">c. {{ ques[10]['Op3'] }}  </h6>
+            <h6 value="d">d. {{ ques[10]['Op4'] }}  </h6>
+            
+            <input type="text" id="ans11" name="ans11"  placeholder="Answer" >
+            <br><br>
+            <h5>12.{{ ques[11]['Desc'] }}</h5>
+            <h6 value="a">a. {{ ques[11]['Op1'] }}  </h6>
+            <h6 value="b">b. {{ ques[11]['Op2'] }}  </h6>
+            <h6 value="c">c. {{ ques[11]['Op3'] }}  </h6>
+            <h6 value="d">d. {{ ques[11]['Op4'] }}  </h6>
+           
+            <input type="text" id="ans12" name="ans12"  placeholder="Answer" >
+            <br><br>
+            <h5>13.{{ ques[12]['Desc'] }}</h5>
+            <h6 value="a">a. {{ ques[12]['Op1'] }}  </h6>
+            <h6 value="b">b. {{ ques[12]['Op2'] }}  </h6>
+            <h6 value="c">c. {{ ques[12]['Op3'] }}  </h6>
+            <h6 value="d">d. {{ ques[12]['Op4'] }}  </h6>
+ 
+            <input type="text" id="ans13" name="ans13"  placeholder="Answer" >
+            <br><br>
+            <h5>14.{{ ques[13]['Desc'] }}</h5>
+            <h6 value="a">a. {{ ques[13]['Op1'] }}  </h6>
+            <h6 value="b">b. {{ ques[13]['Op2'] }}  </h6>
+            <h6 value="c">c. {{ ques[13]['Op3'] }}  </h6>
+            <h6 value="d">d. {{ ques[13]['Op4'] }}  </h6>
+    
+            <input type="text" id="ans14" name="ans14"  placeholder="Answer" >
+            <br><br>
+            <h5>15.{{ ques[14]['Desc'] }}</h5>
+            <h6 value="a">a. {{ ques[14]['Op1'] }}  </h6>
+            <h6 value="b">b. {{ ques[14]['Op2'] }}  </h6>
+            <h6 value="c">c. {{ ques[14]['Op3'] }}  </h6>
+            <h6 value="d">d. {{ ques[14]['Op4'] }}  </h6>
+            
+            <input type="text" id="ans15" name="ans15"  placeholder="Answer" >
+            <br><br>
+            <button type="submit" class="btn btn-primary text-center">Submit</button>
+          <br>
+          <p id="p"></p>
+        
+        </form>
+      </div>
+    </div>
+  </section>
+  
+</body>
+</html>

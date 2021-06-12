@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Candidate Details</title>
+    <link rel = "icon" href = "{{url_for('static',filename='icon.jpg')}}" type = "image/x-icon">
+
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" ></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+
+.login-box
+{
+    width: 55%;
+    border: 5px solid #888888;
+    border-radius: 10px;
+    background-color: #dde0d7;
+    box-shadow: 5px 9px 15px #888888;
+    margin: auto;
+   
+}
+
+.text{
+    border-color: transparent;
+    border-bottom: 1px solid black;
+    background-color: #dde0d7;
+}
+.btn-primary {
+    box-shadow: none;
+    padding-left: 20px;
+    padding: 8px 25px;
+    border: none;
+    border-radius: 20px;
+    background-image: linear-gradient(to right, #ffa500, #ff8c00);
+}
+
+.bottom-img {
+    height: 100px;
+    width: 100%;
+}
+
+</style>
+
+
+</head>
+<body>
+<section id="nav-bar">
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <div class="container-fluid">
+           <a class="navbar-brand" href="{{url_for('admin')}}"><img src="{{url_for('static',filename='logo1.png')}}"></a>
+        </div>
+    </nav>      
+</section> 
+<!--------------banner section ---------------->
+<section id="banner">
+    <div class="container">
+        <div class="row">
+            <div class="login-box">
+                <br>
+                <h2 style="color:brown;font-weight: bolder;text-align: center;">EDIT CANDIDATE DETAILS</h2>
+                <br>
+            <div class="container">
+                <h4  style="color:brown;font-weight:bold;text-align: left;">UPDATE STATUS :</h4>
+                <br>
+                <input type="number" class="form-control text" id="candidate_id_up"name="candidate_id_up" placeholder="Enter Company ID">
+                <br>
+                <h6 style="text-align: left;  color:brown;font-weight: bold;">STATUS :</h6>
+                <input type="radio" id="selected" name="status" value="selected">
+                <label style="color:chocolate; font-weight: bold;"  for="selected">Selected</label><br>
+                <input type="radio" id="rejected" name="status" value="rejected">
+                <label  style="color: chocolate; font-weight: bold;" for="rejected">Rejected</label><br>
+                <center>
+                <a href="#" class="btn btn-primary">UPDATE</a>
+                    <br><br>
+                <h4  style="color:brown;font-weight:bold;text-align: left;">DELETE :</h4>
+                <br>
+                <input type="number" class="form-control text" id="candidate_id_del"name="candidate_id_del" placeholder="Enter Company ID">
+                <br><center>
+                <a href="#" class="btn btn-primary">DELETE</a>
+                    <br><br>
+            <a href="{{url_for('admin')}}" class="btn btn-primary">BACK</a>
+            <br><br>
+            
+            <br><br>
+            </div>
+        </div>   
+    </div>
+    </div>
+    <img src="{{url_for('static',filename='wave.png')}}" class="bottom-img">
+</section>

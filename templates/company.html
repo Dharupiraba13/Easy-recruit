@@ -1,0 +1,29 @@
+{% extends "homepage.html" %}
+
+{% block logo %}
+<a class="navbar-brand" href="{{url_for('company')}}"><img src="{{url_for('static',filename='logo1.png')}}"></a>
+          
+{% endblock%}
+
+{% block navbar %}
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link"  href="{{url_for('company')}}">HOME</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('job')}}">JOBS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('report')}}">REPORT</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="#contact" >CONTACT</a>
+              </li>
+              <li><a class="dropdown-item" href="{{url_for('logout')}}">LOGOUT</a></li>
+              
+          </div>
+{%endblock%}
+{% block get_started %}
+
+{%endblock%}

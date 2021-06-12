@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+#nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar {
+    background-image: linear-gradient(to right, #ffa500, #ff8c00);
+    padding: 0 !important;
+}
+
+.navbar-nav li {
+    padding: 0 10px;
+}
+
+.navbar-nav li a {
+    color: #fff !important;
+    font-weight: 600;
+    float: right;
+    text-align: left;
+}
+
+.fa-bars {
+    font-size: 25px !important;
+}
+
+.navbar-toggler {
+    outline: none !important;
+}
+
+/*---------banner section ----*/
+
+#banner {
+    background-image: linear-gradient(to right, #ffa500, #ff8c00);
+    color: #fff;
+    padding: top 5%;
+
+}
+
+.promo-title {
+    font-size: 40px;
+    font-weight: 600;
+    margin-top: 100px;
+}
+
+.go-btn {
+    color: darkgreen;
+    font-size: 25px !important;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 100px;
+
+}
+
+.bottom-img {
+    height: 70px;
+    width: 100%;
+}
+
+/*---------jobs section ---------*/
+
+#jobs {
+    padding: 100px 0;
+}
+
+.job-img {
+    width: 150px;
+    margin-top: 20px;
+}
+
+.jobs {
+    padding: 20px;
+}
+
+.jobs h4 {
+    padding: 5px;
+    margin-top: 25px;
+    text-transform: uppercase;
+}
+
+.title::before {
+    content: '';
+    background: #ff8c00;
+    height: 5px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    transform: translateY(63px);
+}
+
+.title::after {
+    content: '';
+    background: #ff8c00;
+    height: 10px;
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    display: block;
+    transform: translateY(8px);
+}
+
+#jobs .btn-primary {
+    box-shadow: none;
+    padding: 8px 25px;
+    border: none;
+    border-radius: 20px;
+    background-image: linear-gradient(to right, #ffa500, #ff8c00);
+}
+
+/*------------------About us ------------*/
+
+#about-us {
+    background: #ffcf75;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+#about-us ul li {
+    margin: 10px 0;
+    font-size: 20px;
+    color: ivory;
+}
+
+/*------------------Popular Recruiters------------*/
+
+#recruiters {
+    padding: 100px 0;
+}
+
+.recruiters-img {
+    width: 150px;
+    height: 180px;
+    margin-top: 20px;
+}
+
+/*------------Social Media --------------*/
+
+#social {
+    background: #ffcf75;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+.social-icons img {
+    width: 60px;
+    transition: 0.5s;
+}
+
+.social-icons a:hover img {
+    transform: translateY(-10px);
+}
+
+/*------------Contact us ------------*/
+.contact-box {
+    color: black;
+    padding: auto;
+    font-size: 20px;
+}
+
+.contact-box .fa {
+    margin-right: 8px;
+    font-size: 25px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    padding-top: 7px;
+    border-radius: 2px;
+    background-image: linear-gradient(to right, #ffa500, #ff8c00);
+}
+
+.contact-box .form-control {
+
+    border-radius: 0;
+    margin-top: 25px;
+    max-width: 250px;
+}

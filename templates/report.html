@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruitment System</title>
+    <link rel = "icon" href = "{{url_for('static',filename='icon.jpg')}}" type = "image/x-icon">
+
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" ></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<section id="nav-bar">
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <div class="container-fluid">
+           <a class="navbar-brand" href="{{url_for('company')}}"><img src="{{url_for('static',filename='logo1.png')}}"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link"  href="{{url_for('company')}}">HOME</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('job')}}">JOBS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('report')}}">REPORT</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="#contact" >CONTACT</a>
+              </li>
+              <li><a class="dropdown-item" href="{{url_for('logout')}}">LOGOUT</a></li>
+              
+          </div>
+    </div>
+      </nav>
+   
+</section> 
+
+
+
+<!--------------banner section ---------------->
+<section id="banner">
+    <div class="container">
+        <table class="table table-hover table-dark">
+            <thead>
+               <tr>
+                  <!-- Your Columns HERE -->
+                  <th scope="col">Job ID</th>
+                  <th scope="col">Position</th>
+                  <th scope="col">User ID</th>
+                  <th scope="col">Score</th>
+                  <th scope="col">Profile</th>
+                  <th scope="col">Placement</th>
+                </tr>
+            </thead>
+            <tbody>
+               <!-- Your rows inside the table HERE: -->
+               <br><br><br><br>
+               {% for item in user %}<tr>
+
+                  <td>{{ item['j_id'] }}</td>
+                  <td>{{ item['j_name'] }}</td>
+                  <td>{{ item['u_id'] }}</td>
+                  <td>{{ item['score'] }}</td>
+                  
+                  <td>
+
+                <form method="POST" action="/report">
+                    <button class="btn btn-outline btn-info" type="submit" name="button" value="{{item.value}}" id="button"  >Recruit</button>
+
+                     <button class="btn btn-outline btn-info" type="submit" name="button" value="{{item.value1}}" id="button"  >Reject</button>
+                    </td>
+             
+                  <td>
+                    <button class="btn btn-outline btn-info" name="profile" value="{{item.u_id}}"  >Profile</button>
+                </form>
+                </td>
+                
+               </tr>
+               {% endfor %}
+               
+            </tbody>
+         </table>
+         <br><br><br>
+    </div>
+    <img src="{{url_for('static',filename='wave.png')}}" class="bottom-img">
+</section>
+
+<!------------------ Contact us ------------>
+<section id="contact">
+    <div class="container">
+        <h1 class="title text-center">CONTACT US</h1> 
+        <div class="row ">
+       <div class="col-md-6 contact-box">
+           <p><i class="fa fa-map-marker" aria-hidden="true"></i><b> HEAD OFFICE</b></p>
+           <p>437,Fourth Cross,Boston,MA</p> 
+       </div>
+       <div class="col-md-6 contact-box">
+        <p><b> Subscribe Newsletter</b></p>
+        <input type="email" class="form-control" placeholder="Enter e-mail">
+       <br> <button type="button" class="btn btn-primary">Submit</button>
+    </div>
+       <div class="col-md-6 contact-box">
+        <p><i class="fa fa-envelope" aria-hidden="true"></i></i><b> Write to us </b></p>
+        <p>infocampusrecruitment@gmail.com</p>
+    </div>
+</div>   
+</section>
+
+<!-------------Scroll -------------->
+<script src="{{url_for('static',filename='smooth-scroll.js')}}"></script>
+<script>
+	var scroll = new SmoothScroll('a[href*="#"]');
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{% extends "homepage.html" %}
+
+{% block navbar %}
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link"  href="{{url_for('student')}}">HOME</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('view_job')}}">JOBS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('assessment_main')}}">ASSESMENT</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="{{url_for('status')}}" >STATUS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="#contact" >CONTACT</a>
+              </li>
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                 PROFILE
+                </a>
+                <ul class="dropdown-menu"  aria-labelledby="navbarDropdownMenuLink">
+                  <li><a  style="color: black;" class="dropdown-item" href="{{url_for('profile')}}"><span style="color: black;">Profile</span></a></li>
+                  <li><a  style="color: black;" class="dropdown-item" href="{{url_for('logout')}}"><span style="color: black;">Logout</span></a></li>
+                </ul>
+              </li>
+          </div>
+{%endblock%}
+{% block get_started %}
+
+{%endblock%}

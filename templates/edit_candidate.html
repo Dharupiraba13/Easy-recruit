@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Candidate Details </title>
+    <link rel = "icon" href = "{{url_for('static',filename='icon.jpg')}}" type = "image/x-icon">
+
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" ></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+
+.login-box
+{
+    width: 65%;
+    border: 5px solid #888888;
+    border-radius: 10px;
+    background-color: #dde0d7;
+    box-shadow: 5px 9px 15px #888888;
+    margin: auto;
+   
+}
+.table,th,td
+{
+    border: 3px solid grey;
+    font-size:large;
+    color:darkblue;
+    background-color:ivory;
+       
+    
+}
+th{
+        color:darkcyan;
+        font-size: larger;
+            
+}
+
+.text{
+    border-color: transparent;
+    border-bottom: 1px solid black;
+    background-color: #dde0d7;
+}
+.btn-primary {
+    box-shadow: none;
+    padding-left: 20px;
+    padding: 8px 25px;
+    border: none;
+    border-radius: 20px;
+    background-image: linear-gradient(to right, #ffa500, #ff8c00);
+}
+
+.bottom-img {
+    height: 100px;
+    width: 100%;
+}
+
+</style>
+
+
+</head>
+<body>
+<section id="nav-bar">
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <div class="container-fluid">
+           <a class="navbar-brand" href="{{url_for('admin')}}"><img src="{{url_for('static',filename='logo1.png')}}"></a>
+        </div>
+    </nav>      
+</section> 
+<!--------------banner section ---------------->
+<section id="banner">
+    <div class="container">
+        <div class="row">
+            <div class="login-box">
+                <br>
+                <h2 style="color:brown;font-weight: bolder;text-align: center;">CANDIDATE DETAILS</h2>
+            <div class="container">
+           <br>
+           <br><center>
+          
+            <table class="table table-hover table-striped ">
+                <thead>
+                  <tr>
+                    <th >Id</th>
+                    <th >Name</th>
+                    <th >Password</th>
+                    <th>Skills</th>
+                    <th>Dob</th>
+                    <th>College</th>
+                    <th>cgpa</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for item in user %}
+                  <tr>
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.pwd}}</td>
+                    <td>{{item.skills}}</td>
+                    <td>{{item.Dob}}</td>
+                    <td>{{item.college}}</td>
+                    <td>{{item.cgpa}}</td>
+                    <td>{{item.status}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table><br>
+           <h5 style="color: black">Select the Edit option to update/delete candidate details.</h5> 
+            <br>
+            <a href="{{url_for('update_candidate')}}" class="btn btn-primary">EDIT</a>
+            <br><br>
+            
+            <a href="{{url_for('admin')}}" class="btn btn-primary">BACK</a></center>
+            <br><br>
+            </div>
+        </div>   
+    </div>
+    </div>
+    <img src="{{url_for('static',filename='wave.png')}}" class="bottom-img">
+</section>
